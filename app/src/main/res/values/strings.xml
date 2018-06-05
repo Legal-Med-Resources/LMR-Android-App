@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Yellow Pages</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+
+    <!--left navigation drawer-->
+    <string name="menu_home">Home</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_latest">Latest</string>
+    <string name="menu_favourite">Favourite</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_communicate">Communicate</string>
+    <string name="menu_about">About Us</string>
+    <string name="menu_rate_app">Rate App</string>
+    <string name="menu_share_app">Share App</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_privacy">Privacy Policy</string>
+
+    <string name="no_item_found">No Item Found</string>
+    <string name="you_may">You may also like</string>
+
+    <string name="version">Version</string>
+    <string name="author">Author</string>
+    <string name="company">Company</string>
+    <string name="email">Email</string>
+    <string name="website">Website</string>
+    <string name="contact">Contact</string>
+    <string name="about">About</string>
+
+    <string name="report_channel">Report Channel</string>
+    <string name="submit">Submit</string>
+
+    <string name="signup">Sign up</string>
+    <string name="login">Login</string>
+    <string name="skip">Skip</string>
+
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="remember">Remember Me</string>
+    <string name="already_account">Already have an account? Sign Up</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone">Phone</string>
+    <string name="already_account_sign_in">Already have an account? Login</string>
+
+    <!-- connection message -->
+    <string name="conne_msg1">No Network Connection!!!</string>
+    <string name="conne_msg2">Please connect to working Internet connection</string>
+    <string name="nodata">No Data Found</string>
+    <string name="update">Update</string>
+    <string name="logout_msg">Are you sure you want to logout?</string>
+
+    <string name="share_msg">Hi,I would like to share Application which is used to watch live tv free please download it from Google Play Store Free Here \n https://play.google.com/store/apps/details?id=</string>
+    <string name="login_msg">You need to login first</string>
+
+    <string name="favourite_add">Favourite has been saved</string>
+    <string name="favourite_remove">Favourite has been removed</string>
+
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string> <!-- Change AdMob Banner Id -->
+    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string> <!-- Change AdMob Interstitial Id -->
+
+
+    <string name="featured">Featured Listing</string>
+
+    <string name="text_no_item">No item available.</string>
+    <string name="tag_line">Find Places</string>
+
+    <string name="exit">Exit</string>
+    <string name="exit_msg">Are You Sure You Want To Quit?</string>
+    <string name="search_hint">I\'m Looking for</string>
+
+
+</resources>

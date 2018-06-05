@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/outline_border"
+    android:orientation="vertical"
+    android:padding="9dp">
+
+    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+        android:id="@+id/image"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        android:background="#f5f6fa"
+        android:contentDescription="@string/app_name"
+        android:padding="20dp"
+        android:src="@mipmap/ic_launcher"
+        app:shape_mode="circle"
+        app:stroke_color="#e2e2e2"
+        app:stroke_width="2dp" />
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:text="Hotel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/text_color_category"
+        android:textStyle="bold" />
+
+</LinearLayout>
