@@ -8,15 +8,15 @@
     <string name="drawer_close">Drawer Close</string>
 
     <!--left navigation drawer-->
+    <string name="menu_category">Main Menu</string>
     <string name="menu_home">Home</string>
-    <string name="menu_category">Category</string>
-    <string name="menu_latest">Latest</string>
-    <string name="menu_favourite">Favourite</string>
+    <string name="menu_latest">Listings</string>
+    <string name="menu_favourite">Saved Listings</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_communicate">Communicate</string>
-    <string name="menu_about">About Us</string>
-    <string name="menu_rate_app">Rate App</string>
-    <string name="menu_share_app">Share App</string>
+    <string name="menu_about">About LMR</string>
+    <string name="menu_rate_app">Share Accident Photos</string>
+    <string name="menu_share_app">Share Accident Location</string>
     <string name="menu_search">Search</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_privacy">Privacy Policy</string>
@@ -65,16 +65,16 @@
     <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string> <!-- Change AdMob Interstitial Id -->
 
 
-    <string name="featured">Featured Listing</string>
+    <string name="featured">Network Collision Repair Shops</string>
 
     <string name="text_no_item">No item available.</string>
-    <string name="tag_line">Find Places</string>
+    <string name="tag_line">Auto Safety Assistant</string>
 
     <string name="exit">Exit</string>
     <string name="exit_msg">Are You Sure You Want To Quit?</string>
     <string name="search_hint">I\'m Looking for</string>
 
-    <string name="share_location">Share</string>
+    <string name="share_location">Share Accident Location</string>
     <string name="copy_location">Copy</string>
     <string name="view_location">View</string>
     <string name="copied">Copied to clipboard</string>

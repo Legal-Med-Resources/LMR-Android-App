@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         String ShareSub = "Share Accident Location";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, ShareSub);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
-        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        startActivity(Intent.createChooser(sharingIntent, "Share Accident Location"));
     }
 
     private void startRequestingLocation() {
