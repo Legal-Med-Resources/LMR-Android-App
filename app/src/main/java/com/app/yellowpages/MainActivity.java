@@ -5,9 +5,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.preference.PreferenceManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import java.text.MessageFormat;
+import java.util.Locale;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +31,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.os.SystemClock;
 
 import com.example.fragment.CategoryFragment;
 import com.example.fragment.FavouriteFragment;
@@ -35,6 +43,9 @@ import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final static int PERMISSION_REQUEST = 1;
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     private DrawerLayout drawerLayout;
     private FragmentManager fragmentManager;
     MyApplication MyApp;
@@ -43,6 +54,22 @@ public class MainActivity extends AppCompatActivity {
     AdView mAdView;
     NavigationView navigationView;
     Toolbar toolbar;
+    private LocationManager locManager;
+    private Location lastLocation;
+
+    private final LocationListener locListener = new LocationListener() {
+        public void onLocationChanged(Location loc) {
+            updateLocation(loc);
+        }
+        public void onProviderEnabled(String provider) {
+            updateLocation();
+        }
+        public void onProviderDisabled(String provider) {
+            updateLocation();
+        }
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
         HomeFragment homeFragment = new HomeFragment();
         fragmentManager.beginTransaction().replace(R.id.Container, homeFragment).commit();
+
+        // Set default values for preferences
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        locManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -127,6 +159,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            locManager.removeUpdates(locListener);
+        } catch (SecurityException e) {
+            Log.e(TAG, "Failed to stop listening for location updates", e);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startRequestingLocation();
+    }
+
+    private void updateLocation() {
+        // Trigger a UI update without changing the location
+        updateLocation(lastLocation);
+    }
+
+    private void updateLocation(Location location) {
+        boolean locationEnabled = locManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean waitingForLocation = locationEnabled && !validLocation(location);
+        boolean haveLocation = locationEnabled && !waitingForLocation;
+
+            lastLocation = location;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
@@ -167,11 +228,71 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ShareApp() {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_msg) + getPackageName());
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+        if (!validLocation(lastLocation)) {
+            return;
+        }
+
+        String link = formatLocation(lastLocation, PreferenceManager.getDefaultSharedPreferences(this).getString("prefLinkType", ""));
+
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String ShareSub = "Share Accident Location";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, ShareSub);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
+
+    private void startRequestingLocation() {
+        if (!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            return;
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
+            return;
+        }
+
+        // GPS enabled and have permission - start requesting location updates
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locListener);
+    }
+
+    private boolean validLocation(Location location) {
+        if (location == null) {
+            return false;
+        }
+
+        // Location must be from less than 30 seconds ago to be considered valid
+        if (Build.VERSION.SDK_INT < 17) {
+            return System.currentTimeMillis() - location.getTime() < 30e3;
+        } else {
+            return SystemClock.elapsedRealtime() - location.getElapsedRealtimeNanos() < 30e9;
+        }
+
+    }
+
+    private String getAccuracy(Location location) {
+        float accuracy = location.getAccuracy();
+        if (accuracy < 0.01) {
+            return "?";
+        } else if (accuracy > 99) {
+            return "99+";
+        } else {
+            return String.format(Locale.US, "%2.0fm", accuracy);
+        }
+    }
+
+    private String getLatitude(Location location) {
+        return String.format(Locale.US, "%2.5f", location.getLatitude());
+    }
+
+    private String getLongitude(Location location) {
+        return String.format(Locale.US, "%3.5f", location.getLongitude());
+    }
+
+    private String formatLocation(Location location, String format) {
+        return MessageFormat.format(format,
+                getLatitude(location), getLongitude(location));
     }
 
     private void RateApp() {
@@ -224,7 +345,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST &&
+                grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            startRequestingLocation();
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         boolean canUseExternalStorage = false;
 

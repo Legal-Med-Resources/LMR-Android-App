@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffcd00</color>
-    <color name="colorPrimaryDark">#e5b800</color>
+    <color name="colorPrimary">#5767a9</color>
+    <color name="colorPrimaryDark">#374991</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="colorAccent">#ffcd00</color>
+    <color name="colorAccent">#869dfd</color>
 
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="navigation_default">#898989</color>
-    <color name="navigation_checked">#ffcd00</color>
+    <color name="navigation_checked">#5767a9</color>
 
     <color name="border">#f5f5f5</color>
     <color name="border_radius">#ededed</color>
@@ -18,7 +18,7 @@
     <color name="text_color_feature">#9a9a9a</color>
     <color name="text_color_category">#848383</color>
 
-    <color name="yellow">#F49600</color>
+    <color name="yellow">#5767a9</color>
     <color name="line">#C6CBCF</color>
 
     <color name="transparent">#00000000</color>
@@ -27,5 +27,19 @@
 
     <color name="about_title">#353535</color>
     <color name="about_desc">#8b8b8b</color>
+
+    <color name="primary" type="color">#ff259b24</color>
+    <color name="primarydark" type="color">#ff0a7e07</color>
+    <color name="accent">#ff0091ea</color>
+    <color name="primarytext" type="color">#de000000</color>
+    <color name="secondarytext" type="color">#8a000000</color>
+    <color name="ondarktext" type="color">#fffafafa</color>
+    <color name="primarybackground" type="color">#fffafafa</color>
+    <color name="secondarybackground" type="color">#ffeeeeee</color>
+    <color name="darkbackground" type="color">#ff323232</color>
+    <color name="divider">#1f000000</color>
+    <color name="red">#ffe51c23</color>
+    <color name="orange">#ffff9800</color>
+    <color name="green">#ff259b24</color>
 
 </resources>

@@ -44,7 +44,7 @@
             android:id="@+id/menu_go_share"
             android:checkable="false"
             android:icon="@drawable/ic_share"
-            android:title="@string/menu_share_app" />
+            android:title="@string/share_location" />
 
         <item
             android:id="@+id/menu_go_privacy"
