@@ -4,6 +4,12 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/menu_go_call"
+            android:checked="false"
+            android:icon="@drawable/ic_call"
+            android:title="@string/menu_call" />
+
+        <item
             android:id="@+id/menu_go_category"
             android:checked="false"
             android:icon="@drawable/ic_category"
@@ -20,12 +26,6 @@
             android:checked="false"
             android:icon="@drawable/ic_latest"
             android:title="@string/menu_latest" />
-
-        <item
-            android:id="@+id/menu_go_call"
-            android:checked="false"
-            android:icon="@drawable/ic_favourite"
-            android:title="@string/menu_call" />
 
         <item
             android:id="@+id/menu_go_favourite"
