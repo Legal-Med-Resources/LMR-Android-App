@@ -12,8 +12,12 @@ import android.preference.PreferenceManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import java.io.File;
 import java.text.MessageFormat;
 import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -44,6 +48,7 @@ import com.google.android.gms.ads.AdView;
 public class MainActivity extends AppCompatActivity {
 
     private final static int PERMISSION_REQUEST = 1;
+    private final static int CAMERA_PIC_REQUEST = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private DrawerLayout drawerLayout;
@@ -126,8 +131,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent about = new Intent(MainActivity.this, AboutUsActivity.class);
                         startActivity(about);
                         return true;
-                    case R.id.menu_go_rate:
-                        RateApp();
+                    case R.id.menu_go_camera:
+                        PictureApp();
+                        return true;
+                    case R.id.menu_go_share_pic:
+                        SharePicApp();
                         return true;
                     case R.id.menu_go_share:
                         ShareApp();
@@ -302,6 +310,24 @@ public class MainActivity extends AppCompatActivity {
         Uri number = Uri.parse("tel:**567");
         Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
         startActivity(callIntent);
+    }
+
+    private void PictureApp() {
+        Intent photo = new Intent("android.media.action.IMAGE_CAPTURE");
+        startActivityForResult(photo, CAMERA_PIC_REQUEST);
+        startActivity(photo);
+    }
+
+    private void SharePicApp() {
+        final Intent ei = new Intent(Intent.ACTION_SEND_MULTIPLE);
+        ei.setType("plain/text");
+        ei.putExtra(Intent.EXTRA_EMAIL, new String[] {"matt.gorski@gmail.com"});
+        ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photos");
+
+        ArrayList<Uri> uris = new ArrayList<>();
+
+        ei.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+        startActivityForResult(Intent.createChooser(ei, "Sending multiple attachments"), 12345);
     }
 
     private void RateApp() {

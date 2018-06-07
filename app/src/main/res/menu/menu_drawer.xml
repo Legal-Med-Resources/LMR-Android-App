@@ -41,10 +41,16 @@
             android:title="@string/menu_about" />
 
         <item
-            android:id="@+id/menu_go_rate"
+            android:id="@+id/menu_go_camera"
             android:checkable="false"
-            android:icon="@drawable/ic_rate"
-            android:title="@string/menu_rate_app" />
+            android:icon="@drawable/ic_share"
+            android:title="@string/menu_camera_app" />
+
+        <item
+            android:id="@+id/menu_go_share_pic"
+            android:checkable="false"
+            android:icon="@drawable/ic_share"
+            android:title="@string/menu_share_pic" />
 
         <item
             android:id="@+id/menu_go_share"

@@ -8,7 +8,7 @@
     <string name="drawer_close">Drawer Close</string>
 
     <!--left navigation drawer-->
-    <string name="menu_category">Main Menu</string>
+    <string name="menu_category">Services</string>
     <string name="menu_home">Home</string>
     <string name="menu_latest">Listings</string>
     <string name="menu_favourite">Saved Listings</string>
@@ -16,7 +16,9 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_communicate">Communicate</string>
     <string name="menu_about">About LMR</string>
-    <string name="menu_rate_app">Share Accident Photos</string>
+    <string name="menu_camera_app">Take Accident Photos</string>
+    <string name="menu_share_pic">Share Accident Photos</string>
+    <string name="ids_msg_share">Share Accident Photos</string>
     <string name="menu_share_app">Share Accident Location</string>
     <string name="menu_search">Search</string>
     <string name="menu_logout">Logout</string>
