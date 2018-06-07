@@ -22,6 +22,12 @@
             android:title="@string/menu_latest" />
 
         <item
+            android:id="@+id/menu_go_call"
+            android:checked="false"
+            android:icon="@drawable/ic_favourite"
+            android:title="@string/menu_call" />
+
+        <item
             android:id="@+id/menu_go_favourite"
             android:checked="false"
             android:icon="@drawable/ic_favourite"
