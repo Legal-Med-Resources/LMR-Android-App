@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.app.yellowpages.R;
+import com.app.legalmed.R;
 import com.example.adapter.CategoryAdapter;
 import com.example.item.ItemCategory;
 import com.example.util.Constant;

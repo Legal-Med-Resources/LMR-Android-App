@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.app.yellowpages"
+        applicationId "com.app.legalmed"
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
                                 onesignal_app_id: "7a36ee80-e9d6-422a-8ab4-bf715d65efd4",
                                 onesignal_google_project_number: "953400958776"]

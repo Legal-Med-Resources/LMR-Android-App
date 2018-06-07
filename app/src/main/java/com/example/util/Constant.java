@@ -10,7 +10,7 @@ public class Constant implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 
-	public static String SERVER_URL = "http://www.viaviweb.in/envato/cc/android_yellow_pages_demo/";
+	public static String SERVER_URL = "http://legalmedresources.com/listings/";
 
 	public static final String IMAGE_PATH=SERVER_URL + "images/";
 

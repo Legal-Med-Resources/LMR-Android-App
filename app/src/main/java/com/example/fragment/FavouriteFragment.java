@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.app.yellowpages.R;
+import com.app.legalmed.R;
 import com.example.adapter.ListingAdapter;
 import com.example.db.DatabaseHelper;
 import com.example.item.ItemListing;

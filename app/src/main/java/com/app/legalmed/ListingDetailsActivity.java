@@ -1,4 +1,4 @@
-package com.app.yellowpages;
+package com.app.legalmed;
 
 
 import android.content.ContentValues;

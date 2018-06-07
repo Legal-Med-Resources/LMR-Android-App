@@ -19,8 +19,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.yellowpages.R;
-import com.app.yellowpages.SearchActivity;
+import com.app.legalmed.R;
+import com.app.legalmed.SearchActivity;
 import com.example.adapter.HomeAdapter;
 import com.example.item.ItemListing;
 import com.example.util.Constant;
