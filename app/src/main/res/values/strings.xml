@@ -12,6 +12,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_latest">Listings</string>
     <string name="menu_favourite">Saved Listings</string>
+    <string name="menu_call">Call **LMR</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_communicate">Communicate</string>
     <string name="menu_about">About LMR</string>

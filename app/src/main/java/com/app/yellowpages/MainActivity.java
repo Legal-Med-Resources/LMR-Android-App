@@ -119,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
                         FavouriteFragment favouriteFragment = new FavouriteFragment();
                         fragmentManager.beginTransaction().replace(R.id.Container, favouriteFragment).commit();
                         return true;
+                    case R.id.menu_go_call:
+                        CallApp();
+                        return true;
                     case R.id.menu_go_about:
                         Intent about = new Intent(MainActivity.this, AboutUsActivity.class);
                         startActivity(about);
@@ -293,6 +296,12 @@ public class MainActivity extends AppCompatActivity {
     private String formatLocation(Location location, String format) {
         return MessageFormat.format(format,
                 getLatitude(location), getLongitude(location));
+    }
+
+    private void CallApp() {
+        Uri number = Uri.parse("tel:**567");
+        Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+        startActivity(callIntent);
     }
 
     private void RateApp() {
