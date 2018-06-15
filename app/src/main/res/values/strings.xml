@@ -75,7 +75,7 @@
 
     <string name="exit">Exit</string>
     <string name="exit_msg">Are You Sure You Want To Quit?</string>
-    <string name="search_hint">I\'m Looking for</string>
+    <string name="search_hint">Search Body Shops</string>
 
     <string name="share_location">Share Accident Location</string>
     <string name="copy_location">Copy</string>
