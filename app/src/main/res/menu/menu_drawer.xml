@@ -41,6 +41,12 @@
             android:title="@string/menu_about" />
 
         <item
+            android:id="@+id/menu_go_authorize"
+            android:checkable="false"
+            android:icon="@drawable/ic_about"
+            android:title="@string/menu_authorize" />
+
+        <item
             android:id="@+id/menu_go_camera"
             android:checkable="false"
             android:icon="@drawable/ic_share"

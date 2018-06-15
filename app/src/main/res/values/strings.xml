@@ -16,6 +16,7 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_communicate">Communicate</string>
     <string name="menu_about">About LMR</string>
+    <string name="menu_authorize">Authorize LMR</string>
     <string name="menu_camera_app">Take Accident Photos</string>
     <string name="menu_share_pic">Share Accident Photos</string>
     <string name="ids_msg_share">Share Accident Photos</string>

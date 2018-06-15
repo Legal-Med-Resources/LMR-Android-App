@@ -131,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent about = new Intent(MainActivity.this, AboutUsActivity.class);
                         startActivity(about);
                         return true;
+                    case R.id.menu_go_authorize:
+                        AuthorizeApp();
+                        return true;
                     case R.id.menu_go_camera:
                         PictureApp();
                         return true;
@@ -310,6 +313,12 @@ public class MainActivity extends AppCompatActivity {
         Uri number = Uri.parse("tel:**567");
         Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
         startActivity(callIntent);
+    }
+
+    private void AuthorizeApp() {
+        Intent i = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://legalmedresources.com/authorize-lmr/"));
+        startActivity(i);
     }
 
     private void PictureApp() {
