@@ -9,7 +9,7 @@ android {
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
                                 onesignal_app_id: "7a36ee80-e9d6-422a-8ab4-bf715d65efd4",
                                 onesignal_google_project_number: "953400958776"]
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

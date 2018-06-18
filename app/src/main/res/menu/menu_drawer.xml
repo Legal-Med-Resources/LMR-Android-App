@@ -10,12 +10,6 @@
             android:title="@string/menu_call" />
 
         <item
-            android:id="@+id/menu_go_category"
-            android:checked="false"
-            android:icon="@drawable/ic_category"
-            android:title="@string/menu_category" />
-
-        <item
             android:id="@+id/menu_go_home"
             android:checked="true"
             android:icon="@drawable/ic_home"

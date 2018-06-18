@@ -10,8 +10,8 @@
     <!--left navigation drawer-->
     <string name="menu_category">Services</string>
     <string name="menu_home">Home</string>
-    <string name="menu_latest">Listings</string>
-    <string name="menu_favourite">Saved Listings</string>
+    <string name="menu_latest">Auto Repair Shops</string>
+    <string name="menu_favourite">My Auto Repair Shops</string>
     <string name="menu_call">Call **LMR</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_communicate">Communicate</string>

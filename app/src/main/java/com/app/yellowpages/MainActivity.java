@@ -17,7 +17,7 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ArrayList;
-import java.util.List;
+import android.support.v4.content.ContextCompat;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -109,11 +109,6 @@ public class MainActivity extends AppCompatActivity {
                         HomeFragment homeFragment = new HomeFragment();
                         fragmentManager.beginTransaction().replace(R.id.Container, homeFragment).commit();
                         return true;
-                    case R.id.menu_go_category:
-                        toolbar.setTitle(getString(R.string.menu_category));
-                        CategoryFragment currentCategory = new CategoryFragment();
-                        fragmentManager.beginTransaction().replace(R.id.Container, currentCategory).commit();
-                        return true;
                     case R.id.menu_go_latest:
                         toolbar.setTitle(getString(R.string.menu_latest));
                         LatestFragment latestFragment = new LatestFragment();
@@ -168,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         if (!hasPermissions(this, PERMISSIONS)) {
-            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA,Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
     }
 
@@ -388,6 +383,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],
@@ -400,9 +396,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+
         boolean canUseExternalStorage = false;
 
         switch (requestCode) {
+
             case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
