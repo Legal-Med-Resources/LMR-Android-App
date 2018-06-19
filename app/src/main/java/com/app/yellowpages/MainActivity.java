@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
     //camera stuff
     Intent imageIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
+    String timeStamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date());
 
     //folder stuff
     File imagesFolder = new File(Environment.getExternalStorageDirectory(), "DCIM/Camera");
-
-    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg");
+    int availableIndex = 1;
+    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + ".jpg");
 
     Uri uriSavedImage = Uri.fromFile(image);
 
@@ -344,11 +344,7 @@ public class MainActivity extends AppCompatActivity {
         ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photos");
 
         ArrayList<Uri> uris = new ArrayList<>();
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg")));
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_2" + ".jpg")));
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_3" + ".jpg")));
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_4" + ".jpg")));
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_5" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + "*" + ".jpg")));
 
         ei.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
         startActivityForResult(Intent.createChooser(ei, "Sending multiple attachments"), 12345);
