@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,7 +18,8 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ArrayList;
-import android.support.v4.content.ContextCompat;
+import android.provider.MediaStore;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -37,7 +39,9 @@ import android.view.View;
 import android.widget.Toast;
 import android.os.SystemClock;
 
-import com.example.fragment.CategoryFragment;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.example.fragment.FavouriteFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.LatestFragment;
@@ -48,7 +52,7 @@ import com.google.android.gms.ads.AdView;
 public class MainActivity extends AppCompatActivity {
 
     private final static int PERMISSION_REQUEST = 1;
-    private final static int CAMERA_PIC_REQUEST = 1;
+    protected static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 0;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private DrawerLayout drawerLayout;
@@ -61,6 +65,17 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     private LocationManager locManager;
     private Location lastLocation;
+
+    //camera stuff
+    Intent imageIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
+
+    //folder stuff
+    File imagesFolder = new File(Environment.getExternalStorageDirectory(), "DCIM/Camera");
+
+    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg");
+
+    Uri uriSavedImage = Uri.fromFile(image);
 
     private final LocationListener locListener = new LocationListener() {
         public void onLocationChanged(Location loc) {
@@ -81,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         fragmentManager = getSupportFragmentManager();
         MyApp = MyApplication.getInstance();
@@ -317,18 +333,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void PictureApp() {
-        Intent photo = new Intent("android.media.action.IMAGE_CAPTURE");
-        startActivityForResult(photo, CAMERA_PIC_REQUEST);
-        startActivity(photo);
+        imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+        startActivityForResult(imageIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
     private void SharePicApp() {
         final Intent ei = new Intent(Intent.ACTION_SEND_MULTIPLE);
-        ei.setType("plain/text");
+        ei.setType("image/jpeg");
         ei.putExtra(Intent.EXTRA_EMAIL, new String[] {"matt.gorski@gmail.com"});
         ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photos");
 
         ArrayList<Uri> uris = new ArrayList<>();
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_2" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_3" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_4" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_5" + ".jpg")));
 
         ei.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
         startActivityForResult(Intent.createChooser(ei, "Sending multiple attachments"), 12345);

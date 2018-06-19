@@ -43,7 +43,7 @@
         <item
             android:id="@+id/menu_go_camera"
             android:checkable="false"
-            android:icon="@drawable/ic_share"
+            android:icon="@drawable/ic_camera"
             android:title="@string/menu_camera_app" />
 
         <item
@@ -55,7 +55,7 @@
         <item
             android:id="@+id/menu_go_share"
             android:checkable="false"
-            android:icon="@drawable/ic_share"
+            android:icon="@drawable/ic_gps"
             android:title="@string/share_location" />
 
         <item
