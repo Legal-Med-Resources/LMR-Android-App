@@ -64,5 +64,11 @@
             android:icon="@drawable/ic_privacy"
             android:title="@string/menu_privacy" />
 
+        <item
+            android:id="@+id/menu_go_dashcam"
+            android:checkable="false"
+            android:icon="@drawable/ic_dashcam"
+            android:title="@string/menu_dashcam" />
+
     </group>
 </menu>

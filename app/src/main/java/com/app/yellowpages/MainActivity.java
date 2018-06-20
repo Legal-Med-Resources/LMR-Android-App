@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     //folder stuff
     File imagesFolder = new File(Environment.getExternalStorageDirectory(), "DCIM/Camera");
-    int availableIndex = 1;
-    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + ".jpg");
+
+    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg");
 
     Uri uriSavedImage = Uri.fromFile(image);
 
@@ -157,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_go_privacy:
                         Intent privacy = new Intent(MainActivity.this, PrivacyActivity.class);
                         startActivity(privacy);
+                        return true;
+                    case R.id.menu_go_dashcam:
+                        DashCamApp();
                         return true;
                     default:
                         return true;
@@ -332,6 +335,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void DashCamApp() {
+        Intent i = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://legalmedresources.com/claim-dash-cam/"));
+        startActivity(i);
+    }
+
     private void PictureApp() {
         imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
         startActivityForResult(imageIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
@@ -344,10 +353,10 @@ public class MainActivity extends AppCompatActivity {
         ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photos");
 
         ArrayList<Uri> uris = new ArrayList<>();
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + "*" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg")));
 
         ei.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-        startActivityForResult(Intent.createChooser(ei, "Sending multiple attachments"), 12345);
+        startActivityForResult(Intent.createChooser(ei, "Sending Accident Photos"), 12345);
     }
 
     private void RateApp() {

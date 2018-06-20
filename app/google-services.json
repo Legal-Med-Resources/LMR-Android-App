@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "168058724978",
+    "firebase_url": "https://lmr-android-app-wip.firebaseio.com",
+    "project_id": "lmr-android-app-wip",
+    "storage_bucket": "lmr-android-app-wip.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168058724978:android:75b792b2a7557a54",
+        "android_client_info": {
+          "package_name": "com.app.yellowpages"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168058724978-jiq9877vm7mkmgjssbk9h9cnebsr4jrc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.yellowpages",
+            "certificate_hash": "71b019f55548043e20b3488e13f8e4763f76ccb2"
+          }
+        },
+        {
+          "client_id": "168058724978-laivpu6gvktik5e0o7ar0ut3hnot071n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "168058724978-laivpu6gvktik5e0o7ar0ut3hnot071n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYehM8jnvH-t28_U7MWBxboN23CPI283M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168058724978-laivpu6gvktik5e0o7ar0ut3hnot071n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

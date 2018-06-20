@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Legal Med Resources</string>
+    <string name="app_name">Personal Auto Safety Assistant</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -17,13 +17,14 @@
     <string name="menu_communicate">Communicate</string>
     <string name="menu_about">About LMR</string>
     <string name="menu_authorize">Authorize LMR</string>
-    <string name="menu_camera_app">Take Accident Photos</string>
-    <string name="menu_share_pic">Share Accident Photos</string>
-    <string name="ids_msg_share">Share Accident Photos</string>
+    <string name="menu_camera_app">Take Accident Photo</string>
+    <string name="menu_share_pic">Share Accident Photo</string>
+    <string name="ids_msg_share">Share Accident Photo</string>
     <string name="menu_share_app">Share Accident Location</string>
     <string name="menu_search">Search</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_privacy">Privacy Policy</string>
+    <string name="menu_dashcam">Claim Free Dash Cam</string>
 
     <string name="no_item_found">No Item Found</string>
     <string name="you_may">You may also like</string>
@@ -65,8 +66,8 @@
     <string name="favourite_add">Favourite has been saved</string>
     <string name="favourite_remove">Favourite has been removed</string>
 
-    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string> <!-- Change AdMob Banner Id -->
-    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string> <!-- Change AdMob Interstitial Id -->
+    <string name="admob_banner_id">ca-app-pub-2470262152368078~3255206193</string> <!-- Change AdMob Banner Id -->
+    <string name="admob_interstitial_id">ca-app-pub-2470262152368078/1019925091</string> <!-- Change AdMob Interstitial Id -->
 
 
     <string name="featured">Network Collision Repair Shops</string>
