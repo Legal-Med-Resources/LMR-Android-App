@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.app.yellowpages.CategoryItemActivity;
-import com.app.yellowpages.R;
+import com.app.legalmedresources.CategoryItemActivity;
+import com.app.legalmedresources.R;
 import com.example.item.ItemCategory;
 import com.squareup.picasso.Picasso;
 

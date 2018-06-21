@@ -2,7 +2,7 @@ package com.example.util;
 
 import android.content.Context;
 
-import com.app.yellowpages.R;
+import com.app.legalmedresources.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;

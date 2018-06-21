@@ -1,4 +1,4 @@
-package com.app.yellowpages;
+package com.app.legalmedresources;
 
 import android.app.Application;
 import android.content.SharedPreferences;

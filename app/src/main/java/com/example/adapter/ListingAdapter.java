@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.app.yellowpages.ListingDetailsActivity;
-import com.app.yellowpages.MapActivity;
-import com.app.yellowpages.R;
+import com.app.legalmedresources.ListingDetailsActivity;
+import com.app.legalmedresources.MapActivity;
+import com.app.legalmedresources.R;
 import com.example.item.ItemListing;
 import com.example.util.PopUpAds;
 import com.squareup.picasso.Picasso;

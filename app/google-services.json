@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:168058724978:android:75b792b2a7557a54",
         "android_client_info": {
-          "package_name": "com.app.yellowpages"
+          "package_name": "com.app.legalmedresources"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "168058724978-jiq9877vm7mkmgjssbk9h9cnebsr4jrc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.app.yellowpages",
+            "package_name": "com.app.legalmedresources",
             "certificate_hash": "71b019f55548043e20b3488e13f8e4763f76ccb2"
           }
         },
