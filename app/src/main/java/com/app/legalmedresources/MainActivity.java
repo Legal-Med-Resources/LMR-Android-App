@@ -37,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import android.os.SystemClock;
+import android.os.StrictMode;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -68,12 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
     //camera stuff
     Intent imageIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    String timeStamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date());
 
     //folder stuff
     File imagesFolder = new File(Environment.getExternalStorageDirectory(), "DCIM/Camera");
 
-    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg");
+    File image = new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + "1" + ".jpg");
 
     Uri uriSavedImage = Uri.fromFile(image);
 
@@ -344,6 +344,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void PictureApp() {
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
         imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
         startActivityForResult(imageIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
@@ -351,11 +353,11 @@ public class MainActivity extends AppCompatActivity {
     private void SharePicApp() {
         final Intent ei = new Intent(Intent.ACTION_SEND_MULTIPLE);
         ei.setType("image/jpeg");
-        ei.putExtra(Intent.EXTRA_EMAIL, new String[] {"matt.gorski@gmail.com"});
-        ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photos");
+        ei.putExtra(Intent.EXTRA_EMAIL, new String[] {"info@legalmedresources.com"});
+        ei.putExtra(Intent.EXTRA_SUBJECT, "LMR Accident Photo");
 
         ArrayList<Uri> uris = new ArrayList<>();
-        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_" + timeStamp + "_1" + ".jpg")));
+        uris.add(Uri.fromFile(new File(imagesFolder, "LMR_ACCIDENT_PHOTO_"  + "1" + ".jpg")));
 
         ei.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
         startActivityForResult(Intent.createChooser(ei, "Sending Accident Photos"), 12345);
@@ -415,14 +417,6 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],
                                            @NonNull int[] grantResults) {
-        if (requestCode == PERMISSION_REQUEST &&
-                grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            startRequestingLocation();
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
-            finish();
-        }
-
 
         boolean canUseExternalStorage = false;
 
@@ -431,6 +425,7 @@ public class MainActivity extends AppCompatActivity {
             case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startRequestingLocation();
                     canUseExternalStorage = true;
                 }
                 if (!canUseExternalStorage) {

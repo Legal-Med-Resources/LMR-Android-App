@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Personal Auto Safety Assistant</string>
+    <string name="app_name">Legal Med</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -60,14 +60,14 @@
     <string name="update">Update</string>
     <string name="logout_msg">Are you sure you want to logout?</string>
 
-    <string name="share_msg">Hi,I would like to share Application which is used to watch live tv free please download it from Google Play Store Free Here \n https://play.google.com/store/apps/details?id=</string>
+    <string name="share_msg">.</string>
     <string name="login_msg">You need to login first</string>
 
     <string name="favourite_add">Favourite has been saved</string>
     <string name="favourite_remove">Favourite has been removed</string>
 
-    <string name="admob_banner_id">ca-app-pub-2470262152368078~3255206193</string> <!-- Change AdMob Banner Id -->
-    <string name="admob_interstitial_id">ca-app-pub-2470262152368078/1019925091</string> <!-- Change AdMob Interstitial Id -->
+    <string name="admob_banner_id">ca-app-pub-2470262152368078/3255206193</string> <!-- Change AdMob Banner Id -->
+    <string name="admob_interstitial_id">ca-app-pub-2470262152368078/6356275583</string> <!-- Change AdMob Interstitial Id -->
 
 
     <string name="featured">Network Collision Repair Shops</string>
